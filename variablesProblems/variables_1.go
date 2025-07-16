@@ -1,4 +1,4 @@
-package variables_problems
+package variablesProblems
 
 import "fmt"
 
