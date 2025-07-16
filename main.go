@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	functions "go-lang-sandbox/functionsProblems"
+)
 
 func main() {
 	// defer fmt.Println("factorial: ", functionsProblems.Factorial(10))
@@ -110,18 +113,19 @@ func main() {
 	// var input string
 	// fmt.Scanln(&input)
 
-	c := make(chan int, 2) // Буферизированный канал с емкостью 1
+	// c := make(chan int, 2) // Буферизированный канал с емкостью 1
 
 	// Отправляем значение в канал
-	c <- 42 // Не блокируется, так как буфер пустой
-	fmt.Println("Sent 42 to channel")
+	// c <- 42 // Не блокируется, так как буфер пустой
+	// fmt.Println("Sent 42 to channel")
 
 	// Пытаемся отправить еще одно значение
-	c <- 100                           // Блокируется, так как буфер заполнен (емкость 1)
-	fmt.Println("Sent 100 to channel") // Эта строка не выполнится
+	// c <- 100                           // Блокируется, так как буфер заполнен (емкость 1)
+	// fmt.Println("Sent 100 to channel") // Эта строка не выполнится
 
 	// Получаем значение
-	fmt.Println(<-c) // Получаем 42, буфер освобождается
-	fmt.Println(<-c)
+	// fmt.Println(<-c) // Получаем 42, буфер освобождается
+	// fmt.Println(<-c)
 
+	fmt.Println(functions.Average([]float64{}))
 }

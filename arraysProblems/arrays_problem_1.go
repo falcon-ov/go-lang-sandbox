@@ -3,7 +3,6 @@ package arraysProblems
 import "fmt"
 
 // Напишите программу, которая находит самый наименьший элемент в этом списке:
-
 func MinElement() {
 	x := []int{
 		48, 96, 86, 68,
@@ -20,4 +19,13 @@ func MinElement() {
 
 	fmt.Println(min)
 
+}
+
+// Документация бла-бла-бла
+func SumOfSquares(n int) int64 {
+	var sums int64 = 0
+	for i := 1; i <= n; i++ {
+		sums += int64(i * i)
+	}
+	return sums
 }
