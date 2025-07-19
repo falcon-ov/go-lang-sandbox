@@ -1,9 +1,9 @@
 package main
 
 import (
-	"go-lang-sandbox/problems/problem16"
+	"go-lang-sandbox/concurrency/concurrency4"
 )
 
 func main() {
-	problem16.ColorTest()
+	concurrency4.Conver()
 }
