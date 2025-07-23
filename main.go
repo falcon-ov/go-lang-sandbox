@@ -2,36 +2,18 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
-	"sync"
 	"time"
 )
 
-func randomWait() int {
-	workSeconds := rand.Intn(5 + 1)
-	time.Sleep(time.Duration(workSeconds) * time.Second)
-	return workSeconds
-}
-
 func main() {
-	mainSeconds := 0
-	totalWorkSeconds := 0
-	wg := &sync.WaitGroup{}
-	locker := &sync.Mutex{}
-	start := time.Now()
+	data := []string{"apple", "banana", "cherry"}
 
-	wg.Add(10)
-	for range 10 {
+	for _, item := range data {
 		go func() {
-			defer wg.Done()
-			seconds := randomWait()
-			locker.Lock()
-			totalWorkSeconds += seconds
-			locker.Unlock()
+			time.Sleep(time.Second * 1)
+			fmt.Println(item) //проблема в замыкании
 		}()
 	}
-	wg.Wait()
-	mainSeconds = int(time.Since(start).Seconds())
-	fmt.Println("main: ", mainSeconds, "sec")
-	fmt.Println("total: ", totalWorkSeconds, "sec")
+
+	time.Sleep(time.Second * 2) //плохая практика, лучше использвать waitgroups
 }
